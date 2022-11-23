@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ppsonair">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application>
+        <activity
+            android:name="com.appsonair.MaintenanceActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.appsonair.AppUpdateActivity"
+            android:exported="false" />
+    </application>
+
+</manifest>

@@ -1,4 +1,4 @@
-# AppsOnAir-Android-SDK
+# AppsOnAir-Android-SDK [![](https://jitpack.io/v/apps-on-air/AppsOnAir-Android-SDK.svg)](https://jitpack.io/#apps-on-air/AppsOnAir-Android-SDK)
 
 AppsOnAir services android SDK
 

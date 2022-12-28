@@ -41,27 +41,22 @@ public class MaintenanceActivity extends AppCompatActivity {
                     String textColorCode = maintenanceData.getString("textColorCode");
                     String backgroundColorCode = maintenanceData.getString("backgroundColorCode");
 
-                    if(title != "" && description != "") {
+                    if (!title.equals("") && !description.equals("")) {
                         maintenance_layout.setVisibility(View.VISIBLE);
 
-                        if (backgroundColorCode != "") {
+                        if (!backgroundColorCode.equals("")) {
                             maintenance_layout.setBackgroundColor(Color.parseColor(backgroundColorCode));
                         }
                         ImageView img_icon = findViewById(R.id.img_icon);
                         TextView txt_title_maintain = findViewById(R.id.txt_title_maintain);
                         TextView txt_des_maintain = findViewById(R.id.txt_des_maintain);
                         TextView txt_app_name = findViewById(R.id.txt_app_name);
-                        Log.d("DDD", image + "");
-                        if (image != null) {
-
-//                            new DownloadImageTask(img_icon)
-//                                    .execute(image);
+                        if (!image.equals("")) {
+                            new DownloadImageTask(img_icon)
+                                    .execute(image);
                         } else {
-                            Log.d("DDDD", "AAAAA");
                             img_icon.setImageResource(R.drawable.maintenance_icon);
-
                         }
-
                         txt_title_maintain.setText(title);
                         txt_des_maintain.setText(description);
 
@@ -74,8 +69,7 @@ public class MaintenanceActivity extends AppCompatActivity {
                             txt_des_maintain.setTextColor(Color.parseColor(textColorCode));
                             txt_app_name.setTextColor(Color.parseColor(textColorCode));
                         }
-                    }
-                    else {
+                    } else {
                         maintenance_layout1.setVisibility(View.VISIBLE);
                         ImageView img_icon = findViewById(R.id.img2_icon);
                         TextView txt_title2_maintain = findViewById(R.id.txt_title2_maintain);
@@ -85,18 +79,16 @@ public class MaintenanceActivity extends AppCompatActivity {
                         String appName = bundle1.getString("com.appupdate.name");
                         txt_title2_maintain.setText(appName + " " + getString(R.string.maintenance));
 
-                        if (!maintenanceData.toString().equals("{}")){
-                            if (image != "" || image != null) {
+                        if (!maintenanceData.toString().equals("{}")) {
+                            if (!image.equals("")) {
                                 new DownloadImageTask(img_icon)
                                         .execute(image);
                             } else {
                                 img_icon.setImageResource(R.drawable.maintenance_icon);
                             }
-
                         }
                     }
-                }
-                else {
+                } else {
                     maintenance_layout1.setVisibility(View.VISIBLE);
                     ImageView img_icon = findViewById(R.id.img2_icon);
                     TextView txt_title2_maintain = findViewById(R.id.txt_title2_maintain);
@@ -106,29 +98,23 @@ public class MaintenanceActivity extends AppCompatActivity {
                     String appName = bundle1.getString("com.appsonair.name");
                     txt_title2_maintain.setText(appName + " " + getString(R.string.maintenance));
 
-                    if (!maintenanceData.toString().equals("{}")){
+                    if (!maintenanceData.toString().equals("{}")) {
                         String image = maintenanceData.getString("image");
-                        if (image != "" || image != null) {
+                        if (!image.equals("")) {
                             new DownloadImageTask(img_icon)
                                     .execute(image);
                         } else {
                             img_icon.setImageResource(R.drawable.maintenance_icon);
                         }
-
                     }
-
                 }
-
-
-
-
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @Override
-    public void onBackPressed() {}
+    public void onBackPressed() {
+    }
 }

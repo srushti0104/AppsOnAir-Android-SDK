@@ -7,9 +7,11 @@
 
     <application>
         <activity
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:name="com.appsonair.MaintenanceActivity"
             android:exported="false" />
         <activity
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:name="com.appsonair.AppUpdateActivity"
             android:exported="false" />
     </application>

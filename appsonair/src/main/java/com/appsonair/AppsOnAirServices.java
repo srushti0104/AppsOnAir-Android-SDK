@@ -27,11 +27,11 @@ import okhttp3.Response;
 public class AppsOnAirServices {
 
     static String appId;
-    static Boolean isNativeUIShow;
+    static Boolean showNativeUI;
 
-    public static void setAppId(String appId, boolean isNativeUIShow) {
+    public static void setAppId(String appId, boolean showNativeUI) {
         AppsOnAirServices.appId = appId;
-        AppsOnAirServices.isNativeUIShow = isNativeUIShow;
+        AppsOnAirServices.showNativeUI = showNativeUI;
     }
 
 
@@ -72,13 +72,13 @@ public class AppsOnAirServices {
                                         buildNum = Integer.parseInt(androidBuildNumber);
                                     }
                                     boolean isUpdate = versionCode < buildNum;
-                                    if (isNativeUIShow && isUpdate && (isAndroidForcedUpdate || isAndroidUpdate)) {
+                                    if (showNativeUI && isUpdate && (isAndroidForcedUpdate || isAndroidUpdate)) {
                                         Intent intent = new Intent(context, AppUpdateActivity.class);
                                         intent.putExtra("res", myResponse);
                                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                         context.startActivity(intent);
                                     }
-                                } else if (isMaintenance && isNativeUIShow) {
+                                } else if (isMaintenance && showNativeUI) {
                                     Intent intent = new Intent(context, MaintenanceActivity.class);
                                     intent.putExtra("res", myResponse);
                                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

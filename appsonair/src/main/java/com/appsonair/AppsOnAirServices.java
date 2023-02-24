@@ -12,7 +12,6 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.ppsonair.BuildConfig;
 
 import org.json.JSONObject;
 

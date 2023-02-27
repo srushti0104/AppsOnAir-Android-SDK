@@ -12,8 +12,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.ppsonair.R;
-
 import org.json.JSONObject;
 
 public class MaintenanceActivity extends AppCompatActivity {
@@ -51,7 +49,7 @@ public class MaintenanceActivity extends AppCompatActivity {
                         TextView txt_title_maintain = findViewById(R.id.txt_title_maintain);
                         TextView txt_des_maintain = findViewById(R.id.txt_des_maintain);
                         TextView txt_app_name = findViewById(R.id.txt_app_name);
-                        if (!image.equals("")) {
+                        if (!image.equals("") && !image.equals("null") && image != null) {
                             new DownloadImageTask(img_icon)
                                     .execute(image);
                         } else {
@@ -62,7 +60,7 @@ public class MaintenanceActivity extends AppCompatActivity {
 
                         ApplicationInfo ai = getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
                         Bundle bundle1 = ai.metaData;
-                        String appName = bundle1.getString("com.appupdate.name");
+                        String appName = bundle1.getString("com.appsonair.name");
                         txt_app_name.setText(appName);
                         if (textColorCode != "") {
                             txt_title_maintain.setTextColor(Color.parseColor(textColorCode));
@@ -76,11 +74,11 @@ public class MaintenanceActivity extends AppCompatActivity {
 
                         ApplicationInfo ai = getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
                         Bundle bundle1 = ai.metaData;
-                        String appName = bundle1.getString("com.appupdate.name");
+                        String appName = bundle1.getString("com.appsonair.name");
                         txt_title2_maintain.setText(appName + " " + getString(R.string.maintenance));
 
                         if (!maintenanceData.toString().equals("{}")) {
-                            if (!image.equals("")) {
+                            if (!image.equals("") && !image.equals("null") && image != null) {
                                 new DownloadImageTask(img_icon)
                                         .execute(image);
                             } else {
@@ -100,7 +98,7 @@ public class MaintenanceActivity extends AppCompatActivity {
 
                     if (!maintenanceData.toString().equals("{}")) {
                         String image = maintenanceData.getString("image");
-                        if (!image.equals("")) {
+                        if (!image.equals("") && !image.equals("null") && image != null) {
                             new DownloadImageTask(img_icon)
                                     .execute(image);
                         } else {

@@ -46,9 +46,9 @@ afterEvaluate {
         publications {
             release(MavenPublication) {
                 from components.release
-                groupId = 'com.github.rushitalogicwind'
-                artifactId = 'appsonair'
-                version = '9.17'
+                groupId = 'com.github.apps-on-air'
+                artifactId = 'AppsOnAir-Android-SDK'
+                version = '1.0'
             }
         }
     }

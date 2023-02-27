@@ -10,7 +10,7 @@ android {
         minSdk 21
         targetSdk 30
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.5"
         android.buildTypes.each { type ->
             type.buildConfigField 'String', 'Base_URL', API_URL
         }
@@ -46,9 +46,9 @@ afterEvaluate {
         publications {
             release(MavenPublication) {
                 from components.release
-                groupId = 'com.github.rushitalogicwind'
-                artifactId = 'appsonair'
-                version = '9.17'
+                groupId = 'com.github.apps-on-air'
+                artifactId = 'AppsOnAir-Android-SDK'
+                version = '1.0'
             }
         }
     }

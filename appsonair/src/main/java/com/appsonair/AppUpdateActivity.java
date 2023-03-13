@@ -96,15 +96,18 @@ public class AppUpdateActivity extends AppCompatActivity {
                 btn_update.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(!isAndroidForcedUpdate){
-                            activityClose = true;
-                            onBackPressed();
+//                        if(!isAndroidForcedUpdate){
+//                            activityClose = true;
+//                            onBackPressed();
+//                        }
+                        try{
+                            Intent marketIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(playStoreURL));
+                            startActivity(marketIntent);
+                        } catch (Exception e){
                         }
-                        Intent marketIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(playStoreURL));
-                        startActivity(marketIntent);
-                        if(!isAndroidForcedUpdate){
+//                        if(!isAndroidForcedUpdate){
 //                            alertDialog.dismiss();
-                        }
+//                        }
                     }
                 });
             }

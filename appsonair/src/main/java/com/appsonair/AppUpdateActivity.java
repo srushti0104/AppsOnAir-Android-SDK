@@ -63,9 +63,6 @@ public class AppUpdateActivity extends AppCompatActivity {
             }
             boolean isUpdate = versionCode < buildNum;
 
-//            AlertDialog alertDialog = new AlertDialog.Builder(this).setCancelable(false).create();
-//            View customLayout = getLayoutInflater().inflate(R.layout.activity_app_update, null);
-//            alertDialog.setView(customLayout);
             ImageView img_icon = findViewById(R.id.img_icon);
 
             if ((isAndroidForcedUpdate || isAndroidUpdate) && (isUpdate)) {
@@ -88,7 +85,6 @@ public class AppUpdateActivity extends AppCompatActivity {
                         public void onClick(View v) {
                             activityClose = true;
                             onBackPressed();
-//                            alertDialog.dismiss();
                         }
                     });
 
@@ -96,23 +92,14 @@ public class AppUpdateActivity extends AppCompatActivity {
                 btn_update.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-//                        if(!isAndroidForcedUpdate){
-//                            activityClose = true;
-//                            onBackPressed();
-//                        }
                         try{
                             Intent marketIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(playStoreURL));
                             startActivity(marketIntent);
                         } catch (Exception e){
                         }
-//                        if(!isAndroidForcedUpdate){
-//                            alertDialog.dismiss();
-//                        }
                     }
                 });
             }
-
-//            alertDialog.show();
             }
 
         } catch (JSONException | PackageManager.NameNotFoundException e) {

@@ -18,7 +18,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         //Get your appId from https://appsonair.com/
-        AppsOnAirServices.setAppId("########-####-#####-####-############", true);
+        AppsOnAirServices.setAppId("f79d23d0-c65e-4680-916b-513433049bd8", true);
         AppsOnAirServices.checkForAppUpdate(this, new UpdateCallBack() {
             @Override
             public void onSuccess(String response) {

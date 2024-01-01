@@ -16,10 +16,11 @@
         android:visibility="gone">
 
         <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            >
 
             <ImageView
                 android:id="@+id/img_icon"
@@ -29,11 +30,12 @@
 
             <TextView
                 android:id="@+id/txt_app_name"
-                android:layout_marginLeft="12dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:lines="1"
+                android:layout_marginLeft="12dp"
                 android:fontFamily="@font/inter_regular"
+                android:lines="1"
+                android:visibility="gone"
                 android:text="App Name"
                 android:textColor="#1A1D40"
                 android:textSize="20dp"
@@ -43,25 +45,28 @@
 
         <TextView
             android:id="@+id/txt_title_maintain"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/inter_regular"
-            android:text="The app is under maintenance"
+            android:text="The app"
             android:textColor="#1A1D40"
+            android:layout_gravity="center"
             android:textSize="18dp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txt_des_maintain"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/inter_regular"
             android:lineSpacingExtra="5dp"
-            android:text="Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet."
+            android:layout_gravity="center"
+            android:text="Amet minim mollit "
             android:textColor="#585E75"
-            android:textSize="14dp" />
+            android:textSize="14dp"
+            />
     </LinearLayout>
 
 

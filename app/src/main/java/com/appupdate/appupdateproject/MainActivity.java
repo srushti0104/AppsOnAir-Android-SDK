@@ -7,10 +7,12 @@ import android.util.Log;
 
 import com.appsonair.AppsOnAirServices;
 import com.appsonair.UpdateCallBack;
+import com.appsonair.ScreenshotDetectionDelegate;
 
 
 public class MainActivity extends Activity {
 
+    private ScreenshotDetectionDelegate screenshotDetectionDelegate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,5 +33,20 @@ public class MainActivity extends Activity {
 
             }
         });
+
+        // Initialize ScreenshotDetectionDelegate
+        screenshotDetectionDelegate = new ScreenshotDetectionDelegate(this);
+
+        // Start screenshot detection
+        screenshotDetectionDelegate.startScreenshotDetection();
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        // Stop screenshot detection to avoid memory leaks
+        screenshotDetectionDelegate.stopScreenshotDetection();
+    }
+
 }

@@ -336,6 +336,8 @@ class EditImageActivity : BaseActivity(), OnPhotoEditorListener, View.OnClickLis
                                 showSnackbar("Image Saved Successfully")
                                 mSaveImageUri = uri
                                 mPhotoEditorView.source.setImageURI(mSaveImageUri)
+                                openFullscreenView(uri)
+                                finish();
                             } else {
                                 hideLoading()
                                 showSnackbar("Failed to save Image")
@@ -351,6 +353,13 @@ class EditImageActivity : BaseActivity(), OnPhotoEditorListener, View.OnClickLis
             requestPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
         }
     }
+    private fun openFullscreenView(imageUri: Uri?) {
+        // Start FullscreenActivity with the image path
+        val intent = Intent(this, FullscreenActivity::class.java)
+        intent.putExtra("IMAGE_PATH", imageUri)
+        startActivity(intent)
+    }
+
 
     // TODO(lucianocheng): Replace onActivityResult with Result API from Google
     //                     See https://developer.android.com/training/basics/intents/result

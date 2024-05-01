@@ -86,14 +86,19 @@
 
     <ImageView
         android:id="@+id/screenshotImageView"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="8dp"
         android:scaleType="centerCrop"
         android:src="@drawable/edittext_bg"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageLabelTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageLabelTextView"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:clickable="true"
+        android:onClick="openFullscreen"/>
+
 
     <ImageButton
         android:id="@+id/editScreenshotButton"
@@ -120,5 +125,24 @@
         android:src="@drawable/ic_close"
         app:layout_constraintEnd_toEndOf="@+id/screenshotImageView"
         app:layout_constraintTop_toTopOf="@id/screenshotImageView" />
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="16dp"
+        android:text="Cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/submitButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

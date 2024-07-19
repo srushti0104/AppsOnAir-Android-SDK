@@ -26,6 +26,11 @@
             android:name="com.appsonair.name"
             android:value="@string/app_name" />
 
+        <!--  Add your Appsonair app id here => Get your appId from https://appsonair.com/ -->
+        <meta-data
+            android:name="app_id"
+            android:value="********-****-****-****-************" />
+
     </application>
 
 </manifest>

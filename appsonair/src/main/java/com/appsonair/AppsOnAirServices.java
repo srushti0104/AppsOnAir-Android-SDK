@@ -2,12 +2,15 @@ package com.appsonair;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkRequest;
 import android.os.Build;
+import android.os.Bundle;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -28,8 +31,25 @@ public class AppsOnAirServices {
     static String appId;
     static Boolean showNativeUI;
 
-    public static void setAppId(String appId, boolean showNativeUI) {
-        AppsOnAirServices.appId = appId;
+    public static void setAppId(Context context, boolean showNativeUI) {
+        try {
+            ApplicationInfo appInfo = context.getPackageManager().getApplicationInfo(
+                    context.getPackageName(), PackageManager.GET_META_DATA);
+
+            Bundle bundle = appInfo.metaData;
+            if (bundle != null) {
+                AppsOnAirServices.appId =  bundle.getString("app_id");
+                Log.d("App Id", appId);
+            } else {
+                // Handle case where metadata bundle is null
+                Log.d("App Id", "Else");
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+            // Handle exception
+            Log.d("App ID", "Catch");
+        }
+//        AppsOnAirServices.appId = appId;
         AppsOnAirServices.showNativeUI = showNativeUI;
     }
 
